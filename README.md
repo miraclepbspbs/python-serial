@@ -1,4 +1,7 @@
 # Serial Port Debugger Tools
+```bash
+python serial_debugger.py
+```
 
 This repository contains two Python-based serial port debugging tools:
 1. A GUI-based debugger using tkinter with PID tuning capabilities
