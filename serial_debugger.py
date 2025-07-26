@@ -363,6 +363,12 @@ class SerialDebugger:
         self.speed_canvas.create_line(padding, padding, padding, canvas_height - padding, fill="gray")
         self.speed_canvas.create_line(padding, canvas_height - padding, canvas_width - padding, canvas_height - padding, fill="gray")
         
+        # Draw zero speed line if it's in range
+        if min_speed <= 0 <= max_speed:
+            zero_y = canvas_height - padding - (0 - min_speed) / (max_speed - min_speed) * graph_height
+            self.speed_canvas.create_line(padding, zero_y, canvas_width - padding, zero_y, 
+                                        fill="green", width=1, dash=(4, 2))
+        
         # Draw data points
         if len(self.speed_data) > 1:
             points = []
